@@ -1,21 +1,23 @@
 const express = require('express');
+const app = express();
 const mysql = require('mysql');
 const bodyParser = require("body-parser");
 
-const app = express();
+// Settings
+const PORT = process.env.PORT || 3000;
 
 // Middlewares & Config
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-const PORT = process.env.PORT || 3000;
+// Start server
 app.listen(PORT, () => {
     console.log('Servidor Encendido')
 });
 
 const { getProducts } = './consultas';
 
-// Route
+// Routes
 app.get('/', (req, res) => {
     res.send('Welcome to my API!');
 });
@@ -24,6 +26,7 @@ app.get('/', (req, res) => {
 app.get('/products', async(req, res) => {
     try {
         const productos = await getProducts();
+
         res.send(productos);
     } catch {
         console.log(e);
