@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
 });
 
 // Todos los productos
-app.get('/products', (req, res) => {
+app.get('/products', async(req, res) => {
     try {
         const productos = await getProducts();
         res.send(productos);
