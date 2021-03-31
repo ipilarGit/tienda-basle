@@ -1,0 +1,124 @@
+{{>Navbar}}
+<div id="Catalogo" class="p-5">
+    <div class="container">
+        <hr>
+        <div class="row">
+            {{#each productos}}
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-3">
+
+                <div class="card">
+                    <img class="card-img-top" src="{{this.url_image}}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{this.category}}</h5>
+                        <p class="card-text">
+                            {{this.name}}
+                        </p>
+                        <b> {{this.price}} </b>
+                        <a href="/producto/{{this.id}}" class="d-block">
+                            <button class="btn btn-primary">
+                                Ver más
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+{{!--   <div class="d-flex justify-content-center mt-2">
+    <nav aria-label="Page navigation example ">
+      <ul class="pagination">
+        <li class="page-item" id="prev">
+          <a class="page-link " href="/Catalogo?pag={{prev pag}}">Anterior</a>
+        </li>
+        <li class="page-item" id="next">
+          <a class="page-link " href="/Catalogo?pag={{next pag pageQ}}">Siguiente</a>
+        </li>
+      </ul>
+    </nav>
+  </div>  --}}
+
+
+</div>
+
+
+
+
+  <div class="d-flex justify-content-center mt-2">
+    <nav aria-label="Page navigation example ">
+      <ul class="pagination">
+        <li class="page-item" id="prev">
+          <a class="page-link " href="/?pag={{prev pag}}">Anterior</a>
+        </li>
+        <li class="page-item" id="next">
+          <a class="page-link " href="/?pag={{next pag pageQ}}">Siguiente</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+
+{{!-- 
+<script>
+    const pageQ = {{ pageQ }};
+    const page = {{ pag}};
+    const pageQArray = [];
+    for (let i = 1; i <= pageQ; i++) {
+        pageQArray.push(i);
+    }
+    $(".pagination").prepend(
+        `
+            <a ${page > 1 ? `href="/?pag=${page - 1}"` : ''} > 
+                <li class="page-item disabled" id="previous">
+                  <span class="page-link">Previous</span>
+                </li>
+            </a>
+            `
+    )
+    pageQArray.forEach((p, i) => {
+        $("#next").before(
+            i + 1 == page ? `
+             <a href="/?pag=${page}">
+             <li class="page-item active">
+                <span class="page-link">
+                    ${p}
+                    <span class="sr-only">(current)</span>
+                </span>
+                </li>
+                </a>
+             ` :
+                `
+                <a href="/?pag=${i + 1}">
+            <li class="page-item"><p class="page-link" href="#">${p}</p></li>
+             </a>
+            `
+        )
+    })
+</script>
+
+
+ --}}
+
+
+
+<script>
+  const pageQ = {{ pageQ }};
+  const page = {{ pag }};
+  for (let i = 1; i <= pageQ; i++) {
+    $("#next").before(
+      i == page ? `
+              <li class="page-item bg-dark">
+                <a class="page-link text-white" href="/?pag=${i}">${i}</a>
+              </li>
+             ` :
+        `
+              <li class="page-item">
+                <a class="page-link" href="/?pag=${i}">
+                  ${i}
+                </a>
+              </li>
+             `
+    )
+  } 
+</script> 
