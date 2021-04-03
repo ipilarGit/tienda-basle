@@ -28,13 +28,9 @@ const productSearch = (req, res) => {
 
     connection.query(sql, (error, productos) => {
         if (error) { res.json(error) };
-        console.log(productos);
+
         let filtrosss = Object.keys(productos[0]);
-
         filtros = filtrosss.filter((f) => f != 'url_image');
-
-        console.log('filtros:  ', filtros);
-        //    let filtros = productos;
         const { filtro, input } = req.params;
 
         let all_ProductsLabels = productos.map((p) => p.category);
@@ -83,23 +79,8 @@ const getProductById = (req, res) => {
       });
       let producto = productos.find((p) => p.id == id);
       res.render("Details", { producto, productoData: JSON.stringify(producto) });
-    
- 
-
      })  
-    
     })  
- 
-
-/* 
-    const promiseOptions = await Promise.all([getProducts(), getCategories()]);
-  const [productos, categories] = promiseOptions; */
- /*  productos.forEach((p) => {
-    p.category = categories.find((c) => c.id == p.category).name;
-  });
-  let producto = productos.find((p) => p.id == id);
-  res.render("Details", { producto, productoData: JSON.stringify(producto) });
-*/
-
 } 
+
 module.exports = { catalogo, productSearch, getProductById }
