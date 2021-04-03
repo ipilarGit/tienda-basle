@@ -1,5 +1,4 @@
 <div class="row p-5">
-
     <div class="col-6">
         <img src="{{producto.url_image}}" class="img-fluid" alt="">
     </div>
@@ -11,7 +10,7 @@
     </div>
 </div>
 
-<button onclick="addToCart()" {{#unless producto.stock }} disabled {{/unless}} type="submit"
+<button onclick="addToCart()" {{#unless producto.name }} disabled {{/unless}} type="submit"
     class="btn btn-primary d-block mx-auto mt-5">Agregar al carrito</button>
 
 <script>
