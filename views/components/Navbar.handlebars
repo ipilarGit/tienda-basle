@@ -9,9 +9,14 @@
             <li class="nav-item">
                 <a class="nav-link" href="/"><i class="fas fa-home"></i></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/carrito"><i class="fas fa-shopping-cart"></i></a>
+            <li class="nav-item"></li>
+            <div data-toggle="modal" data-target="#exampleModal">
+                <i class="fas fa-shopping-cart"></i>
+            </div>
             </li>
+            {{!-- <li class="nav-item">
+                <a class="nav-link" href="/carrito"><i class="fas fa-shopping-cart"></i></a>
+            </li> --}}
         </ul>
         <div class="input-group">
             <input id="busqueda" type="text" class="form-control" placeholder="Search">
@@ -23,6 +28,19 @@
         </div>
     </div>
 </nav>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                {{this.id}}
+            </div>
+
+        </div>
+    </div>
+</div>
 
 {{> Scripts/Busqueda}}
 
