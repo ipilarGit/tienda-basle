@@ -25,7 +25,6 @@ const catalogo = (req, res) => {
 const productSearch = (req, res) => {
 
     const sql = 'SELECT * FROM product';
-
     connection.query(sql, (error, productos) => {
         if (error) { res.json(error) };
 
@@ -34,7 +33,6 @@ const productSearch = (req, res) => {
         const { filtro, input } = req.params;
 
         let all_ProductsLabels = productos.map((p) => p.category);
-
         all_ProductsLabels = [...new Set(all_ProductsLabels)];
         if (filtro == "todos") {
             productos = productos.filter((p) => {
