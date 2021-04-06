@@ -42,7 +42,7 @@ app.listen(PORT, () => {
 app.get('/', catalogo);
 
 //filtrar por busqueda
-app.get("/busqueda/:filtro/:input", productSearch)
+app.get("/busqueda/:input", productSearch)
 
 app.get("/producto/:id", getProductById);
 

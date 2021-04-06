@@ -1,35 +1,14 @@
-<div id="Catalogo" class="p-5">
-    <div class="container">
-        <h6>Buscador: <input list="browsers" id="buscadorView" type="text" class="form-control">
-            <datalist id="browsers">
-                {{#each all_ProductsLabels}}
-                <option value="{{this}}">
-                    {{/each}}
-            </datalist>
-        </h6>
-        <h6>Filtrar por:
-            <select id="filtro" class="form-control">
-                <option selected disabled>
-                    <--- Seleccione el campo a filtrar --->
-                </option>
-                {{#each filtros}}
-                <option value="{{this}}"> {{this}} </option>
-                {{/each}}
-            </select>
-        </h6>
-        <button class="btn btn-success" onclick="buscar()"> Buscar </button>
-
-        <h5 class="mt-5">Búsqueda de productos</h5>
-        <hr>
-        <div class="row mx-0">
+<div id="Catalogo">
+    <div class="container-fluid">
+        <div class="row mt-0">
             {{#unless productos}}
             <h6>No se consiguieron resultados en su búsqueda</h6>
             {{/unless}}
 
             {{#each productos}}
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-3">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-3">
                 <div class="card">
-                    <img class="card-img-top" src="{{this.url_image}}" alt="Card image cap">
+                    <img class="card-img-top" src="{{this.url_image}}" alt="Card image">
                     <div class="card-body">
                         <h5 class="card-title">{{this.name}}</h5>
                         <p class="card-text">
@@ -47,6 +26,7 @@
     </div>
 </div>
 
+{{!-- 
 <script>
     const buscar = () => {
         let buscador = $("#buscadorView").val()
@@ -54,4 +34,4 @@
         !buscador ? alert("Debe escribir algo en la busqueda") :
             window.location = `/busqueda/${filtro ? filtro : "todos"}/${buscador}`
     }
-</script>
+</script> --}}

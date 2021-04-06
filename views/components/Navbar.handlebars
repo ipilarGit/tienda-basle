@@ -9,14 +9,14 @@
             <li class="nav-item">
                 <a class="nav-link" href="/"><i class="fas fa-home"></i></a>
             </li>
-            <li class="nav-item"></li>
+        {{!--     <li class="nav-item"></li>
             <div data-toggle="modal" data-target="#exampleModal">
                 <i class="fas fa-shopping-cart"></i>
             </div>
-            </li>
+            </li> --}}
         </ul>
         <div class="input-group">
-            <input id="busqueda" type="text" class="form-control" placeholder="Search">
+            <input id="busqueda" type="text" class="form-control" placeholder="Busca tu producto aqui...">
             <div class="input-group-btn">
                 <button id="buscador" class="btn btn-outline-info" type="submit">
                     <i class="fas fa-search"></i>
@@ -46,7 +46,6 @@
 </div>
 
 
-
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -60,4 +59,12 @@
     </div>
 </div>
 
-{{> Scripts/Busqueda}}
+
+<script>
+    $("#buscador").click(() => {
+        let busqueda = $("#busqueda").val();
+        let urlFinal = "busqueda/" + busqueda;
+         !busqueda ? alert("Debe escribir algo en la busqueda") : window.location = "/"+ urlFinal
+    })
+
+</script>
