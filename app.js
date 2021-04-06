@@ -41,10 +41,12 @@ app.listen(PORT, () => {
 // all products por category
 app.get('/', catalogo);
 
+//filtrar por busqueda
 app.get("/busqueda/:filtro/:input", productSearch)
 
 app.get("/producto/:id", getProductById);
 
+// error de pagina no encontrada
 app.get("*", (req, res) => {
     res.render("Error");
   });
