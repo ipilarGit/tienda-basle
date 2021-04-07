@@ -34,7 +34,10 @@
         } else {
             producto.cant = 1
             producto.total = producto.price
-            carrito.push(producto)
+            carrito.push(producto);
+            alert('Tu producto ha sido agregado al carrito');
+            window.location = "/"
+
         }
         localStorage.setItem("carrito", JSON.stringify(carrito))
     } 
