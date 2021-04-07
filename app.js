@@ -7,7 +7,7 @@ const bodyParser = require("body-parser");
 const app = express();
 
 const connection = require('./conection');
-const { catalogo, productSearch , getProductById} = require("./controllers/main");
+const { catalogo, productSearch , getProductById, getProductsByCategory} = require("./controllers/main");
 // Settings
 const PORT = process.env.PORT || 3001;
 
@@ -41,8 +41,10 @@ app.listen(PORT, () => {
 // all products por category
 app.get('/', catalogo);
 
-//filtrar por busqueda
+//filtrar por busqueda de producto
 app.get("/busqueda/:input", productSearch)
+
+app.get("/categoria/:category", getProductsByCategory);
 
 app.get("/producto/:id", getProductById);
 

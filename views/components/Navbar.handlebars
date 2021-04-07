@@ -9,7 +9,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="/"><i class="fas fa-home"></i></a>
             </li>
-        {{!--     <li class="nav-item"></li>
+            {{!-- <li class="nav-item"></li>
             <div data-toggle="modal" data-target="#exampleModal">
                 <i class="fas fa-shopping-cart"></i>
             </div>
@@ -31,15 +31,15 @@
     <table class="table table-light">
         <tbody>
             <tr>
-                <td scope="col" class="prueba"><button class="btn btn-light btnCategory" value="energeticas">Bebidas
+                <td scope="col"><button class="btn btn-light btnCategory" id="energeticas" value="1">Bebidas
                         Energéticas</button>
-                <td scope="row"><button class="btn btn-light btnCategory" id="pisco" value="pisco">Pisco</button></td>
-                <td scope="row"><button class="btn btn-light btnCategory" id="ron" value="ron">Ron</button>
+                <td scope="row"><button class="btn btn-light btnCategory" id="pisco" value="2">Pisco</button></td>
+                <td scope="row"><button class="btn btn-light btnCategory" id="ron" value="3">Ron</button>
                 </td>
-                <td scope="row"><button class="btn btn-light btnCategory" id="bebida" value="bebida">Bebida</button></td>
-                <td scope="row"><button class="btn btn-light btnCategory" id="snack" value="snack">Snack</button></td>
-                <td scope="row"><button class="btn btn-light btnCategory" id="cerveza" value="cerveza">Cerveza</button></td>
-                <td scope="row"><button class="btn btn-light btnCategory" id="vodka" value="vodka">Vodka</button></td>
+                <td scope="row"><button class="btn btn-light btnCategory" id="bebida" value="4">Bebida</button></td>
+                <td scope="row"><button class="btn btn-light btnCategory" id="snack" value="5">Snack</button></td>
+                <td scope="row"><button class="btn btn-light btnCategory" id="cerveza" value="6">Cerveza</button></td>
+                <td scope="row"><button class="btn btn-light btnCategory" id="vodka" value="7">Vodka</button></td>
             </tr>
         </tbody>
     </table>
@@ -64,7 +64,17 @@
     $("#buscador").click(() => {
         let busqueda = $("#busqueda").val();
         let urlFinal = "busqueda/" + busqueda;
-         !busqueda ? alert("Debe escribir algo en la busqueda") : window.location = "/"+ urlFinal
+        !busqueda ? alert("Debe escribir algo en la busqueda") : window.location = "/" + urlFinal
     })
+
+    $(document).ready(function () {
+        $('.btnCategory').click(function () {
+            let category = $(this).val();
+               console.log(category)
+            let urlFinalCategory = "categoria/" + category;
+             window.location = "/" + urlFinalCategory
+         
+        });
+    });
 
 </script>

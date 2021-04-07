@@ -57,11 +57,27 @@ console.log(filtro,'  ',input)
 
         res.render("Busqueda", {
             productos: productos.length >= 1 ? productos : null
-            /* all_ProductsLabels, */
-          /*   filtros, */
         });
     })
 }
+
+const getProductsByCategory = (req, res) => {
+
+    const { category } = req.params;
+console.log(category)
+
+    const sql = `SELECT * FROM product WHERE category  = ${category}`;
+    connection.query(sql, (error, productos) => {
+        if (error) { res.json(error) };
+
+        console.log(productos);
+        res.render("Busqueda", {
+            productos: productos.length >= 1 ? productos : null
+        });
+    })
+
+}
+
 
 const getProductById = (req, res) => {
 
@@ -86,4 +102,4 @@ const getProductById = (req, res) => {
     })  
 } 
 
-module.exports = { catalogo, productSearch, getProductById }
+module.exports = { catalogo, productSearch, getProductById , getProductsByCategory}
