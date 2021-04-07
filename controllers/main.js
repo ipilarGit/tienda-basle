@@ -25,7 +25,6 @@ const catalogo = (req, res) => {
 const productSearch = (req, res) => {
 
     const { input } = req.params;
-
     const sql = `SELECT * FROM product WHERE name LIKE '%${input}%' OR price LIKE '${input}%'`;
     connection.query(sql, (error, productos) => {
         if (error) { res.json(error) };
@@ -43,15 +42,11 @@ const getProductsByCategory = (req, res) => {
     const sql = `SELECT * FROM product WHERE category  = ${category}`;
     connection.query(sql, (error, productos) => {
         if (error) { res.json(error) };
-
-        console.log(productos);
         res.render("Busqueda", {
             productos: productos.length >= 1 ? productos : null
         });
     })
-
 }
-
 
 const getProductById = (req, res) => {
 
