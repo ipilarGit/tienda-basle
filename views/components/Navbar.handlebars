@@ -9,11 +9,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="/"><i class="fas fa-home"></i></a>
             </li>
-            {{!-- <li class="nav-item"></li>
-            <div data-toggle="modal" data-target="#exampleModal">
-                <i class="fas fa-shopping-cart"></i>
-            </div>
-            </li> --}}
+            <li class="nav-item"></li>
+            <a class="nav-link" href="/carrito"><i class="fas fa-shopping-cart"></i></a>
+            </li>
         </ul>
         <div class="input-group">
             <input id="busqueda" type="text" class="form-control" placeholder="Busca tu producto aqui...">
@@ -45,21 +43,6 @@
     </table>
 </div>
 
-
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-
-            <div class="modal-body">
-                ...
-            </div>
-
-        </div>
-    </div>
-</div>
-
-
 <script>
     $("#buscador").click(() => {
         let busqueda = $("#busqueda").val();
@@ -70,10 +53,10 @@
     $(document).ready(function () {
         $('.btnCategory').click(function () {
             let category = $(this).val();
-               console.log(category)
+            console.log(category)
             let urlFinalCategory = "categoria/" + category;
-             window.location = "/" + urlFinalCategory
-         
+            window.location = "/" + urlFinalCategory
+
         });
     });
 

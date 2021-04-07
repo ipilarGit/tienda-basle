@@ -37,7 +37,6 @@ app.listen(PORT, () => {
 });
 
 // Routes
-
 // all products por category
 app.get('/', catalogo);
 
@@ -48,7 +47,10 @@ app.get("/categoria/:category", getProductsByCategory);
 
 app.get("/producto/:id", getProductById);
 
-// error de pagina no encontrada
+app.get("/carrito", (req, res) => {
+    res.render("Carrito");
+});
+
 app.get("*", (req, res) => {
     res.render("Error");
   });

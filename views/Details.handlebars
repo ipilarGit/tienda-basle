@@ -4,7 +4,7 @@
     </div>
     <div class="col-6">
         <p> Categoría: {{producto.category}}</p>
-        <p> Descripción: {{producto.name}}</p>
+        <p> Producto: {{producto.name}}</p>
         <p> Porcentaje descuento: {{producto.discount}} %</p>
         <h4> Precio: $ {{producto.price}}</h4>
     </div>
@@ -17,6 +17,22 @@
 
     const producto = JSON.parse('{{{productoData}}}')
     const addToCart = () => {
-alert()
+
+        let carrito = JSON.parse(localStorage.getItem("carrito")) || []
+        const exists = carrito.some(p => p.id == producto.id)
+        if (carrito.length > 0 && exists) {
+            carrito = carrito.map(p => {
+                if (p.id == producto.id) {
+                    p.cant++;
+                    p.total = p.cant * p.price
+                }
+                return p
+            })
+        } else {
+            producto.cant = 1
+            producto.total = producto.price
+            carrito.push(producto)
+        }
+        localStorage.setItem("carrito", JSON.stringify(carrito))
     } 
 </script>

@@ -1,4 +1,6 @@
 <div id="Catalogo">
+     <h3 class="mt-0">Búsqueda de productos</h3>
+    <hr>
     <div class="container-fluid">
         <div class="row mt-0">
             {{#unless productos}}
@@ -13,7 +15,8 @@
                     </div>
                     <img class="card-img-top" src="{{this.url_image}}" alt="Card image">
                     <div class="card-body text-center font-weight-bold ">
-                        <b class="card-title"> $ {{this.price}} </b>
+                        <h6 class="card-title">Descuento: {{this.discount}} %</h6>
+                        <b class="font-weight-bold">$ {{this.price}}</b>
                         <a href="/producto/{{this.id}}"><i class="fas fa-shopping-cart"></i>
                         </a>
                     </div>
