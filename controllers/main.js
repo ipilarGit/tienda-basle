@@ -2,9 +2,13 @@ const connection = require("../conection.js");
 
 const catalogo = (req, res) => {
 
-    const sql = 'SELECT * FROM product ORDER BY category';
-    connection.query(sql, (error, productos) => {
+     const sql = 'SELECT * FROM product ORDER BY category'; 
+     connection.query(sql, (error, productos) => {
         if (error) { res.json(error) };
+        productos.forEach( (p)=> {
+            if (p.url_image==null || p.url_image=='') p.url_image = '/assets/img/bsale-logo.jpg' 
+        });
+
         if (productos) {
             const { pag } = req.query;
             const pageQ = Math.ceil(productos.length / 10);
@@ -26,8 +30,14 @@ const productSearch = (req, res) => {
 
     const { input } = req.params;
     const sql = `SELECT * FROM product WHERE name LIKE '%${input}%' OR price LIKE '${input}%'`;
+  
     connection.query(sql, (error, productos) => {
         if (error) { res.json(error) };
+
+        productos.forEach( (p,i)=> {
+            if (p.url_image==null || p.url_image=='') p.url_image = '/assets/img/bsale-logo.jpg'
+        });
+
         res.render("Busqueda", {
             productos: productos.length >= 1 ? productos : null
         });
@@ -42,6 +52,11 @@ const getProductsByCategory = (req, res) => {
     const sql = `SELECT * FROM product WHERE category  = ${category}`;
     connection.query(sql, (error, productos) => {
         if (error) { res.json(error) };
+
+        productos.forEach( (p)=> {
+            if (p.url_image==null || p.url_image=='') p.url_image = '/assets/img/bsale-logo.jpg' 
+        });
+
         res.render("Busqueda", {
             productos: productos.length >= 1 ? productos : null
         });
@@ -62,9 +77,15 @@ const getProductById = (req, res) => {
         connection.query(sql, (error, categoriess) => {
             if (error) { res.json(error) };
             let categories = categoriess;
+
+            productos.forEach( (p)=> {
+                if (p.url_image==null || p.url_image=='') p.url_image = '/assets/img/bsale-logo.jpg' 
+            });
+
             productos.forEach((p) => {
                 p.category = categories.find((c) => c.id == p.category).name;
             });
+            
             let producto = productos.find((p) => p.id == id);
             res.render("Details", { producto, productoData: JSON.stringify(producto) });
         })

@@ -14,7 +14,7 @@
             </li>
         </ul>
         <div class="input-group">
-            <input id="busqueda" type="text" class="form-control" placeholder="Busca tu producto aqui...">
+            <input id="busqueda" type="text" class="form-control" placeholder="Busca producto por nombre, precio">
             <div class="input-group-btn">
                 <button id="buscador" class="btn btn-outline-info" type="submit">
                     <i class="fas fa-search"></i>
@@ -44,9 +44,25 @@
 </div>
 
 <script>
-    $("#buscador").click(() => {
+
+
+    $("#busqueda").keydown((event) => {
+
         let busqueda = $("#busqueda").val();
         let urlFinal = "busqueda/" + busqueda;
+        let ok = true;
+        if (busqueda.length == 0 && event.keyCode == 13) {
+            alert("Debe escribir algo en la busqueda")
+            ok = false 
+        };
+        if (event.keyCode == 13 && ok == true) {
+            window.location = "/" + urlFinal
+        }
+    })
+
+    $("#buscador").click(() => {
+        busqueda = $("#busqueda").val();
+        urlFinal = "busqueda/" + busqueda;
         !busqueda ? alert("Debe escribir algo en la busqueda") : window.location = "/" + urlFinal
     })
 
@@ -56,7 +72,6 @@
             console.log(category)
             let urlFinalCategory = "categoria/" + category;
             window.location = "/" + urlFinalCategory
-
         });
     });
 

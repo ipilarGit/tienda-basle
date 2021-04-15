@@ -8,6 +8,7 @@ const app = express();
 
 const connection = require('./conection');
 const { catalogo, productSearch , getProductById, getProductsByCategory} = require("./controllers/main");
+
 // Settings
 const PORT = process.env.PORT || 3001;
 
