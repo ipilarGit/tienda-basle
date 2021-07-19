@@ -10,7 +10,7 @@ const connection = require('./conection');
 const { catalogo, productSearch , getProductById, getProductsByCategory} = require("./controllers/main");
 
 // Settings
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 // Middlewares & Config
 app.use(express.urlencoded({ extended: true }));
