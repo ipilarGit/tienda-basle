@@ -70,3 +70,5 @@ Esta vista corresponde al icono carrito del menu principal que toma los producto
 
 Error.handlebars
 Esta plantilla es solo codigo bootstrap para indicar que la pagina que se intenta consultar no existe.
+# tienda_bsale
+# tienda_bsale
