@@ -6,7 +6,7 @@ por la categoria, ademas de implementar un buscador.
 Se desarrollo con lenguaje Javascript, Jquery, Bootstrap, NodeJs, Express, Handlebars
 
 Repositorio Github
-
+https://github.com/ipilarGit/tienda-basle
 
 Deploy Heroku:
 https://prueba-test-mysql.herokuapp.com/
