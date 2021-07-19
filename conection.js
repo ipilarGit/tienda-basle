@@ -6,7 +6,6 @@ const config = {
     password: "bsale_test",
     database: "bsale_test"
 }
-
 const connection = mysql.createConnection(config);
   
 // Check connect

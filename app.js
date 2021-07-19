@@ -3,7 +3,6 @@ const exphbs = require("express-handlebars");
 const Handlebars = require("handlebars");
 const path = require("path");
 const bodyParser = require("body-parser");
-
 const app = express();
 
 const connection = require('./conection');

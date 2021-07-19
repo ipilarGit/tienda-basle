@@ -6,7 +6,7 @@ por la categoria, ademas de implementar un buscador.
 Se desarrollo con lenguaje Javascript, Jquery, Bootstrap, NodeJs, Express, Handlebars
 
 Repositorio Github
-https://git.heroku.com/prueba-test-mysql.git
+
 
 Deploy Heroku:
 https://prueba-test-mysql.herokuapp.com/
